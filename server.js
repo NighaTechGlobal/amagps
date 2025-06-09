@@ -6,6 +6,12 @@ const { MongoClient } = require('mongodb');
 const app = express();
 const PORT = 8000;
 
+
+//if you are using in local server dont use below 3 lines , its for vercel 
+mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("✅ Connected to MongoDB"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
+
 const uri = 'mongodb+srv://nighatechglobal:yC2h3ooatd6lPKv2@24krafts.ocst4.mongodb.net/AmaGnss?retryWrites=true&w=majority';
 
 let collection;
